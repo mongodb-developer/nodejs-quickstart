@@ -6,7 +6,7 @@ async function main(){
      * See http://bit.ly/NodeDocs_lauren for more details
      */
     const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
-
+   
     /**
      * The Mongo Client you will use to interact with your database
      * See bit.ly/Node_MongoClient for more details
@@ -54,16 +54,13 @@ async function main(){
                 last_review: new Date()
             }
         ]);
-
-    } catch (e) {
-        console.error(e);
     } finally {
         // Close the connection to the MongoDB cluster
         await client.close();
     }
 }
 
-main().catch(console.err);
+main().catch(console.error);
 
 /**
  * Create a new Airbnb listing
