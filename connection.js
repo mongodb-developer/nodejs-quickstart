@@ -35,8 +35,8 @@ main().catch(console.err);
  * @param {MongoClient} client A MongoClient that is connected to a cluster
  */
 async function listDatabases(client){
-    databases = await client.db().admin().listDatabases();
+    databasesList = await client.db().admin().listDatabases();
 
     console.log("Databases:");
-    databases.databases.forEach(db => console.log(` - ${db.name}`));
+    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 };
