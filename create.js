@@ -69,7 +69,7 @@ main().catch(console.error);
  */
 async function createListing(client, newListing){
     // See http://bit.ly/Node_InsertOne for the insertOne() docs
-    result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
+    const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
     console.log(`New listing created with the following id: ${result.insertedId}`);
 }
 
@@ -80,7 +80,7 @@ async function createListing(client, newListing){
  */
 async function createMultipleListings(client, newListings){
     // See http://bit.ly/Node_InsertMany for the insertMany() docs
-    result = await client.db("sample_airbnb").collection("listingsAndReviews").insertMany(newListings);
+    const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertMany(newListings);
 
     console.log(`${result.insertedCount} new listing(s) created with the following id(s):`);
     console.log(result.insertedIds);
