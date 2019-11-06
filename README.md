@@ -10,3 +10,4 @@ This repository will walk you through the process of quickly getting started usi
 * Creating documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-create-documents) | [code example](create.js)
 * Reading documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents) | [code example](read.js)
 * Updating documents: blog post (coming soon) | [code example](update.js)
+* Deleting documents: blog post (coming soon) | [code example](delete.js)
