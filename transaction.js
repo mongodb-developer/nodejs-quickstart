@@ -9,7 +9,7 @@ async function main() {
      * See http://bit.ly/NodeDocs_lauren for more details
      */
     const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
-    
+
     /**
      * The Mongo Client you will use to interact with your database
      * See bit.ly/Node_MongoClient for more details
@@ -77,7 +77,7 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
     try {
         // Step 3: Use withTransaction to start a transaction, execute the callback, and commit (or abort on error)
         // Note: The callback for withTransaction MUST be async and/or return a Promise.
-        // See http://bit.ly/Node_withTransaction for the withTransaction() docs
+        // See http://bit.ly/Node_withTransaction for the withTransaction() docs        
         const transactionResults = await session.withTransaction(async () => {
 
             // Important:: You must pass the session to each of the operations   
@@ -111,13 +111,13 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
 
         }, transactionOptions);
 
-        // TODO:  I couldn't find documentation that explicitly said that the transactionResults will be undefined if the transaction is 
-        // unsuccessful, but that seems to be the case.  Can you confirm this is true?
         if (transactionResults) {
             console.log("The reservation was successfully created.");
         } else {
-            console.log("An error occurred and the reservation could not be created.");
+            console.log("The transaction was intentionally aborted.");
         }
+    } catch(e){
+        console.log("The transaction was aborted due to an unexpected error: " + e);
     } finally {
         // Step 4: End the session
         await session.endSession();
