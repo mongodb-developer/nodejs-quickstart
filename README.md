@@ -11,4 +11,9 @@ This repository will walk you through the process of quickly getting started usi
 * Reading documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents) | [code example](read.js)
 * Updating documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents) | [code example](update.js)
 * Deleting documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents) | [code example](delete.js)
-* The aggregation framework: blog post (coming soon) | [code example](https://github.com/mongodb-developer/nodejs-quickstart/blob/master/aggregation.js)
+* The aggregation framework: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework) | [code example](aggregation.js)
+* Transactions: blog post (coming soon) | [code example](transaction.js)
+
+## Related Videos
+
+[How to Perform the CRUD Operations Using MongoDB & Node.js](https://youtu.be/ayNI9Q84v8g)
