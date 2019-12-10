@@ -87,7 +87,7 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
                 { email: userEmail },
                 { $addToSet: { reservations: reservation } },
                 { session });
-            console.log(`${usersUpdateResults.matchedCount} document(s) found in the users collection with the email address ${userEmail}.`)
+            console.log(`${usersUpdateResults.matchedCount} document(s) found in the users collection with the email address ${userEmail}.`);
             console.log(`${usersUpdateResults.modifiedCount} document(s) was/were updated to include the reservation.`);
 
             // Check if the Airbnb listing is already reserved for those dates. If so, abort the transaction.
@@ -106,7 +106,7 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
                 { name: nameOfListing },
                 { $addToSet: { datesReserved: { $each: reservationDates } } },
                 { session });
-            console.log(`${listingsAndReviewsUpdateResults.matchedCount} document(s) found in the listingsAndReviews collection with the name ${nameOfListing}.`)
+            console.log(`${listingsAndReviewsUpdateResults.matchedCount} document(s) found in the listingsAndReviews collection with the name ${nameOfListing}.`);
             console.log(`${listingsAndReviewsUpdateResults.modifiedCount} document(s) was/were updated to include the reservation dates.`);
 
         }, transactionOptions);
@@ -116,7 +116,7 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
         } else {
             console.log("The transaction was intentionally aborted.");
         }
-    } catch(e){
+    } catch (e) {
         console.log("The transaction was aborted due to an unexpected error: " + e);
     } finally {
         // Step 4: End the session
