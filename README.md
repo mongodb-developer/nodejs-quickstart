@@ -13,7 +13,7 @@ This repository will walk you through the process of quickly getting started usi
 * Deleting documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents) | [code example](delete.js)
 * The aggregation framework: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework) | [code example](aggregation.js)
 * Transactions: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions) | [code example](transaction.js)
-* Change streams: blog post (coming soon) | [code example](changeStreams.js)
+* Change streams: [blog post](https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers) | [code example](changeStreams.js)
 
 ## Related Videos
 
