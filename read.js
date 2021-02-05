@@ -41,7 +41,6 @@ main().catch(console.error);
 /**
  * Print an Airbnb listing with the given name
  * Note: If more than one listing has the same name, only the first listing the database finds will be printed.
- *       It's best to use findOne when querying on fields that are guaranteed to be unique.
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
  * @param {String} nameOfListing The name of the listing you want to find
  */

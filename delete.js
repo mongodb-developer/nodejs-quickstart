@@ -50,7 +50,6 @@ main().catch(console.error);
 /**
  * Delete an Airbnb listing with the given name.
  * Note: If more than one listing has the same name, only the first listing the database finds will be deleted.
- *       It's best to use deleteOne when querying on fields that are guaranteed to be unique.
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
  * @param {string} nameOfListing The name of the listing you want to delete
  */
@@ -74,8 +73,7 @@ async function deleteListingsScrapedBeforeDate(client, date) {
 /**
  * Print information indicating if a listing with the given name exists. 
  * If a listing has the 'last_scraped' field, print that as well.
- * Note: If more than one listing has the same name, only the first listing the database finds will be printed.
- *       It's best to use findOne when querying on fields that are guaranteed to be unique.
+ * Note: If more than one listing has the same name, only the first listing the database finds will be printed..
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
  * @param {String} nameOfListing The name of the listing you want to find
  */
