@@ -3,13 +3,13 @@ const { MongoClient } = require('mongodb');
 async function main() {
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See http://bit.ly/NodeDocs_lauren for more details
+     * See https://docs.mongodb.com/drivers/node/ for more details
      */
     const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
 
     /**
      * The Mongo Client you will use to interact with your database
-     * See bit.ly/Node_MongoClient for more details
+     * See https://mongodb.github.io/node-mongodb-native/3.6/api/MongoClient.html for more details
      */
     const client = new MongoClient(uri);
 
@@ -46,7 +46,7 @@ main().catch(console.error);
  * @param {String} nameOfListing The name of the listing you want to find
  */
 async function findOneListingByName(client, nameOfListing) {
-    // See http://bit.ly/Node_findOne for the findOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#findOne for the findOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").findOne({ name: nameOfListing });
 
     if (result) {
@@ -73,7 +73,7 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(clie
     maximumNumberOfResults = Number.MAX_SAFE_INTEGER
 } = {}) {
 
-    // See http://bit.ly/Node_find for the find() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#find for the find() docs
     const cursor = client.db("sample_airbnb").collection("listingsAndReviews")
         .find({
             bedrooms: { $gte: minimumNumberOfBedrooms },

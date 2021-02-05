@@ -3,13 +3,13 @@ const { MongoClient } = require('mongodb');
 async function main() {
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See http://bit.ly/NodeDocs_lauren for more details
+     * See https://docs.mongodb.com/drivers/node/ for more details
      */
     const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
 
     /**
      * The Mongo Client you will use to interact with your database
-     * See bit.ly/Node_MongoClient for more details
+     * See https://mongodb.github.io/node-mongodb-native/3.6/api/MongoClient.html for more details
      */
     const client = new MongoClient(uri);
 
@@ -55,7 +55,7 @@ main().catch(console.error);
  * @param {string} nameOfListing The name of the listing you want to delete
  */
 async function deleteListingByName(client, nameOfListing) {
-    // See http://bit.ly/Node_deleteOne for the deleteOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#deleteOne for the deleteOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").deleteOne({ name: nameOfListing });
     console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }
@@ -66,7 +66,7 @@ async function deleteListingByName(client, nameOfListing) {
  * @param {Date} date The date to check the last_scraped property against
  */
 async function deleteListingsScrapedBeforeDate(client, date) {
-    // See http://bit.ly/Node_deleteMany for the deleteMany() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#deleteMany for the deleteMany() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").deleteMany({ "last_scraped": { $lt: date } });
     console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }
@@ -80,7 +80,7 @@ async function deleteListingsScrapedBeforeDate(client, date) {
  * @param {String} nameOfListing The name of the listing you want to find
  */
 async function printIfListingExists(client, nameOfListing) {
-    // See http://bit.ly/Node_findOne for the findOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#findOne for the findOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").findOne({ name: nameOfListing });
 
     if (result) {
