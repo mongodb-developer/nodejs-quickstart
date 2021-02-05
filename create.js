@@ -3,13 +3,13 @@ const {MongoClient} = require('mongodb');
 async function main(){
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See http://bit.ly/NodeDocs_lauren for more details
+     * See https://docs.mongodb.com/drivers/node/ for more details
      */
     const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
    
     /**
      * The Mongo Client you will use to interact with your database
-     * See bit.ly/Node_MongoClient for more details
+     * See https://mongodb.github.io/node-mongodb-native/3.3/api/MongoClient.html for more details
      */
     const client = new MongoClient(uri);
 
@@ -68,7 +68,7 @@ main().catch(console.error);
  * @param {Object} newListing The new listing to be added
  */
 async function createListing(client, newListing){
-    // See http://bit.ly/Node_InsertOne for the insertOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#insertOne for the insertOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
     console.log(`New listing created with the following id: ${result.insertedId}`);
 }
@@ -79,7 +79,7 @@ async function createListing(client, newListing){
  * @param {Object[]} newListings The new listings to be added
  */
 async function createMultipleListings(client, newListings){
-    // See http://bit.ly/Node_InsertMany for the insertMany() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#insertMany for the insertMany() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertMany(newListings);
 
     console.log(`${result.insertedCount} new listing(s) created with the following id(s):`);

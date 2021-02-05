@@ -3,13 +3,13 @@ const { MongoClient } = require('mongodb');
 async function main() {
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See http://bit.ly/NodeDocs_lauren for more details
+     * See https://docs.mongodb.com/drivers/node/ for more details
      */
     const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
 
     /**
      * The Mongo Client you will use to interact with your database
-     * See bit.ly/Node_MongoClient for more details
+     * See https://mongodb.github.io/node-mongodb-native/3.3/api/MongoClient.html for more details
      */
     const client = new MongoClient(uri);
 
@@ -50,12 +50,11 @@ main().catch(console.error);
 /**
  * Delete an Airbnb listing with the given name.
  * Note: If more than one listing has the same name, only the first listing the database finds will be deleted.
- *       It's best to use deleteOne when querying on fields that are guaranteed to be unique.
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
  * @param {string} nameOfListing The name of the listing you want to delete
  */
 async function deleteListingByName(client, nameOfListing) {
-    // See http://bit.ly/Node_deleteOne for the deleteOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#deleteOne for the deleteOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").deleteOne({ name: nameOfListing });
     console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }
@@ -66,7 +65,7 @@ async function deleteListingByName(client, nameOfListing) {
  * @param {Date} date The date to check the last_scraped property against
  */
 async function deleteListingsScrapedBeforeDate(client, date) {
-    // See http://bit.ly/Node_deleteMany for the deleteMany() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#deleteMany for the deleteMany() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").deleteMany({ "last_scraped": { $lt: date } });
     console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }
@@ -75,12 +74,11 @@ async function deleteListingsScrapedBeforeDate(client, date) {
  * Print information indicating if a listing with the given name exists. 
  * If a listing has the 'last_scraped' field, print that as well.
  * Note: If more than one listing has the same name, only the first listing the database finds will be printed.
- *       It's best to use findOne when querying on fields that are guaranteed to be unique.
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
  * @param {String} nameOfListing The name of the listing you want to find
  */
 async function printIfListingExists(client, nameOfListing) {
-    // See http://bit.ly/Node_findOne for the findOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#findOne for the findOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").findOne({ name: nameOfListing });
 
     if (result) {
