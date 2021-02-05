@@ -9,7 +9,7 @@ async function main() {
 
     /**
      * The Mongo Client you will use to interact with your database
-     * See https://mongodb.github.io/node-mongodb-native/3.3/api/MongoClient.html for more details
+     * See https://mongodb.github.io/node-mongodb-native/3.6/api/MongoClient.html for more details
      */
     const client = new MongoClient(uri);
 
