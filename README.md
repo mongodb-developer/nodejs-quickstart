@@ -2,7 +2,7 @@
 
 This repository will walk you through the process of quickly getting started using Node.js and MongoDB together.  
 
-[Lauren Schaefer](https://github.com/ljhaywar) is actively working to add files to this repo and drafting a blog series that will walk you through the code.  She will be updating this readme as she publishes blog posts.
+This branch uses MongoDB 4.0, MongoDB Node.js Driver 3.3.2, and Node.js 10.16.3. To see the latest version, visit the [master branch](https://github.com/mongodb-developer/nodejs-quickstart).
 
 ## Topics
 
@@ -18,3 +18,7 @@ This repository will walk you through the process of quickly getting started usi
 ## Related Videos
 
 [How to Perform the CRUD Operations Using MongoDB & Node.js](https://youtu.be/ayNI9Q84v8g)
+
+## Questions?
+
+Questions about this repo or how to use MongoDB and Node.js together?  Ask them in the [MongoDB Community](https://community.mongodb.com).
