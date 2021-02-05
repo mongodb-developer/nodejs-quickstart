@@ -6,14 +6,14 @@ This branch uses MongoDB 4.0, MongoDB Node.js Driver 3.3.2, and Node.js 10.16.3.
 
 ## Topics
 
-* How to get connected to your database: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs-mongodb--how-to-get-connected-to-your-database) | [code example](connection.js)
-* Creating documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-create-documents) | [code example](create.js)
-* Reading documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-read-documents) | [code example](read.js)
-* Updating documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-update-documents) | [code example](update.js)
-* Deleting documents: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-delete-documents) | [code example](delete.js)
-* The aggregation framework: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-analyze-data-using-the-aggregation-framework) | [code example](aggregation.js)
-* Transactions: [blog post](https://www.mongodb.com/blog/post/quick-start-nodejs--mongodb--how-to-implement-transactions) | [code example](transaction.js)
-* Change streams: [blog post](https://www.mongodb.com/blog/post/node-js-change-streams-and-triggers) | [code example](changeStreams.js)
+* How to get connected to your database: [blog post](https://developer.mongodb.com/quickstart/node-connect-mongodb/) | [code example](connection.js)
+* Creating documents: [blog post](https://developer.mongodb.com/quickstart/node-crud-tutorial/) | [code example](create.js)
+* Reading documents: [blog post](https://developer.mongodb.com/quickstart/node-crud-tutorial/) | [code example](read.js)
+* Updating documents: [blog post](https://developer.mongodb.com/quickstart/node-crud-tutorial/) | [code example](update.js)
+* Deleting documents: [blog post](https://developer.mongodb.com/quickstart/node-crud-tutorial/) | [code example](delete.js)
+* The aggregation framework: [blog post](https://developer.mongodb.com/quickstart/node-aggregation-framework/) | [code example](aggregation.js)
+* Transactions: [blog post](https://developer.mongodb.com/quickstart/node-transactions/) | [code example](transaction.js)
+* Change streams: [blog post](https://developer.mongodb.com/quickstart/nodejs-change-streams-triggers/) | [code example](changeStreams.js)
 
 ## Related Videos
 
