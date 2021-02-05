@@ -65,7 +65,7 @@ async function deleteListingByName(client, nameOfListing) {
  * @param {Date} date The date to check the last_scraped property against
  */
 async function deleteListingsScrapedBeforeDate(client, date) {
-    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#deleteMany for the deleteMany() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#deleteMany for the deleteMany() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").deleteMany({ "last_scraped": { $lt: date } });
     console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }

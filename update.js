@@ -96,7 +96,7 @@ async function upsertListingByName(client, nameOfListing, updatedListing) {
  * @param {MongoClient} client A MongoClient that is connected to a cluster with the sample_airbnb database
  */
 async function updateAllListingsToHavePropertyType(client) {
-    // See https://mongodb.github.io/node-mongodb-native/3.3/api/Collection.html#updateMany for the updateMany() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#updateMany for the updateMany() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").updateMany({ property_type: { $exists: false } }, { $set: { property_type: "Unknown" } });
     console.log(`${result.matchedCount} document(s) matched the query criteria.`);
     console.log(`${result.modifiedCount} document(s) was/were updated.`);

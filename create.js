@@ -68,7 +68,7 @@ main().catch(console.error);
  * @param {Object} newListing The new listing to be added
  */
 async function createListing(client, newListing){
-    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#insertOnee for the insertOne() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#insertOne for the insertOne() docs
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
     console.log(`New listing created with the following id: ${result.insertedId}`);
 }
