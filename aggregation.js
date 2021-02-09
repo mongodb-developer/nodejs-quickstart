@@ -66,7 +66,7 @@ async function printCheapestSuburbs(client, country, market, maxNumberToPrint) {
         }
     ];
 
-    // See http://bit.ly/Node_aggregate for the aggregate() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#aggregate for the aggregate() docs
     const aggCursor = client.db("sample_airbnb").collection("listingsAndReviews").aggregate(pipeline);
 
     await aggCursor.forEach(airbnbListing => {
