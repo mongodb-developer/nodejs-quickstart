@@ -1,7 +1,8 @@
 const { MongoClient } = require('mongodb');
 
-// CRUD operations in transactions must be on existing collections, so be sure you have run
-// usersCollection.js prior to running this script. 
+// In MongoDB 4.2 and earlier, CRUD operations in transactions must be on existing collections 
+// See https://docs.mongodb.com/manual/core/transactions/#transactions-api for more information
+// Be sure you have run usersCollection.js prior to running this script
 
 async function main() {
     /**
@@ -64,10 +65,10 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
     const reservation = createReservationDocument(nameOfListing, reservationDates, reservationDetails);
 
     // Step 1: Start a Client Session
-    // See http://bit.ly/Node_startSession for the startSession() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/MongoClient.html#startSession for the startSession() docs
     const session = client.startSession();
 
-    // Step 2: Optional. Define options to use for the transaction
+    // Step 2: Optional. Define options for the transaction
     const transactionOptions = {
         readPreference: 'primary',
         readConcern: { level: 'local' },
@@ -77,7 +78,7 @@ async function createReservation(client, userEmail, nameOfListing, reservationDa
     try {
         // Step 3: Use withTransaction to start a transaction, execute the callback, and commit (or abort on error)
         // Note: The callback for withTransaction MUST be async and/or return a Promise.
-        // See http://bit.ly/Node_withTransaction for the withTransaction() docs        
+        // See https://mongodb.github.io/node-mongodb-native/3.6/api/ClientSession.html#withTransaction for the withTransaction() docs        
         const transactionResults = await session.withTransaction(async () => {
 
             // Important:: You must pass the session to each of the operations   
