@@ -65,7 +65,7 @@ main().catch(console.error);
  * @param {Object[]} newUsers The new users to be added
  */
 async function createMultipleUsers(client, newUsers) {
-    // See http://bit.ly/Node_InsertMany for the insertMany() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#insertMany for the insertMany() docs
     const result = await client.db("sample_airbnb").collection("users").insertMany(newUsers);
 
     console.log(`${result.insertedCount} new user(s) created with the following id(s):`);
