@@ -78,7 +78,7 @@ function closeChangeStream(timeInMs = 60000, changeStream) {
 async function monitorListingsUsingEventEmitter(client, timeInMs = 60000, pipeline = []) {
     const collection = client.db("sample_airbnb").collection("listingsAndReviews");
 
-    // See http://bit.ly/Node_watch for the watch() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#watch for the watch() docs
     const changeStream = collection.watch(pipeline);
 
     // ChangeStream inherits from the Node Built-in Class EventEmitter (https://nodejs.org/dist/latest-v12.x/docs/api/events.html#events_class_eventemitter).
@@ -102,7 +102,7 @@ async function monitorListingsUsingEventEmitter(client, timeInMs = 60000, pipeli
 async function monitorListingsUsingHasNext(client, timeInMs = 60000, pipeline = []) {
     const collection = client.db("sample_airbnb").collection("listingsAndReviews");
 
-    // See http://bit.ly/Node_watch for the watch() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#watch for the watch() docs
     const changeStream = collection.watch(pipeline);
 
     // Set a timer that will close the change stream after the given amount of time
@@ -110,10 +110,17 @@ async function monitorListingsUsingHasNext(client, timeInMs = 60000, pipeline = 
     closeChangeStream(timeInMs, changeStream);
 
     // We can use ChangeStream's hasNext() function to wait for a new change in the change stream.
-    // If the change stream is closed, hasNext() will return false so the while loop will exit.
-    // See http://bit.ly/Node_ChangeStream for the ChangeStream docs.
-    while (await changeStream.hasNext()) {
-        console.log(await changeStream.next());
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/ChangeStream.html for the ChangeStream docs.
+    try {
+        while (await changeStream.hasNext()) {
+            console.log(await changeStream.next());
+        }
+    } catch (error) {
+        if (changeStream.isClosed()) {
+            console.log("The change stream is closed. Will not wait on any more changes.")
+        } else {
+            throw error;
+        }
     }
 }
 
@@ -127,10 +134,10 @@ async function monitorListingsUsingHasNext(client, timeInMs = 60000, pipeline = 
 async function monitorListingsUsingStreamAPI(client, timeInMs = 60000, pipeline = []) {
     const collection = client.db('sample_airbnb').collection('listingsAndReviews');
 
-    // See http://bit.ly/Node_watch for the watch() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#watch for the watch() docs
     const changeStream = collection.watch(pipeline);
 
-    // See http://bit.ly/Node_pipe for the pipe() docs
+    // See https://mongodb.github.io/node-mongodb-native/3.6/api/ChangeStream.html#pipe for the pipe() docs
     changeStream.pipe(
         new stream.Writable({
             objectMode: true,
