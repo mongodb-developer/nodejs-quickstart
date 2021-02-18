@@ -138,7 +138,7 @@ async function monitorListingsUsingStreamAPI(client, timeInMs = 60000, pipeline 
     const changeStream = collection.watch(pipeline);
 
     // See https://mongodb.github.io/node-mongodb-native/3.6/api/ChangeStream.html#pipe for the pipe() docs
-    changeStream.pipe(
+    changeStream.stream().pipe(
         new stream.Writable({
             objectMode: true,
             write: function (doc, _, cb) {
