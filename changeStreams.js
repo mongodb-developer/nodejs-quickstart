@@ -116,7 +116,7 @@ async function monitorListingsUsingHasNext(client, timeInMs = 60000, pipeline = 
             console.log(await changeStream.next());
         }
     } catch (error) {
-        if (changeStream.isClosed()) {
+        if (changeStream.closed) {
             console.log("The change stream is closed. Will not wait on any more changes.")
         } else {
             throw error;
