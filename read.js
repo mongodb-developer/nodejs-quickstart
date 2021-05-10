@@ -10,6 +10,9 @@ async function main() {
     /**
      * The Mongo Client you will use to interact with your database
      * See https://mongodb.github.io/node-mongodb-native/3.6/api/MongoClient.html for more details
+     * In case: '[MONGODB DRIVER] Warning: Current Server Discovery and Monitoring engine is deprecated...'
+     * pass option { useUnifiedTopology: true } to the MongoClient constructor.
+     * const client =  new MongoClient(uri, {useUnifiedTopology: true})
      */
     const client = new MongoClient(uri);
 
@@ -89,14 +92,14 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(clie
     if (results.length > 0) {
         console.log(`Found listing(s) with at least ${minimumNumberOfBedrooms} bedrooms and ${minimumNumberOfBathrooms} bathrooms:`);
         results.forEach((result, i) => {
-            date = new Date(result.last_review).toDateString();
+            const date = new Date(result.last_review).toDateString();
 
             console.log();
             console.log(`${i + 1}. name: ${result.name}`);
             console.log(`   _id: ${result._id}`);
             console.log(`   bedrooms: ${result.bedrooms}`);
             console.log(`   bathrooms: ${result.bathrooms}`);
-            console.log(`   most recent review date: ${new Date(result.last_review).toDateString()}`);
+            console.log(`   most recent review date: ${date}`);
         });
     } else {
         console.log(`No listings found with at least ${minimumNumberOfBedrooms} bedrooms and ${minimumNumberOfBathrooms} bathrooms`);
