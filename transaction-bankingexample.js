@@ -30,7 +30,7 @@ async function main() {
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
      * See https://docs.mongodb.com/drivers/node/ for more details
      */
-    const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/banking?retryWrites=true&w=majority";
 
     /**
      * The Mongo Client you will use to interact with your database
@@ -113,7 +113,7 @@ async function transferMoney(client, account1, account2, amount) {
         }, transactionOptions);
 
         if (transactionResults) {
-            console.log("The money was successfully transferred.");
+            console.log("The money was successfully transferred. Database operations from the transaction are now visible outside the transaction.");
         } else {
             console.log("The money was not transferred. The transaction was intentionally aborted.");
         }
