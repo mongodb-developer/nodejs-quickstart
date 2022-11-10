@@ -1,11 +1,14 @@
 const { MongoClient } = require('mongodb');
 
+const username = encodeURIComponent("userName");
+const password = encodeURIComponent("password");
+
 async function main() {
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
      * See https://docs.mongodb.com/drivers/node/ for more details
      */
-    const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/sample_airbnb?retryWrites=true&w=majority";
+    const uri =`mongodb+srv://${username}:${password}@${cluster}/?retryWrites=true&w=majority`;
     
     /**
      * The Mongo Client you will use to interact with your database
