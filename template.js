@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 
 const username = encodeURIComponent("userName");
 const password = encodeURIComponent("password");
-
+const cluster =  "your-cluster-url";
 async function main() {
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
