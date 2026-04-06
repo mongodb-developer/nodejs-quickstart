@@ -20,11 +20,15 @@ async function main() {
         // Connect to the MongoDB cluster
         await client.connect();
 
+        // Log successful connection to MongoDB
+        console.log("Connected to MongoDB successfully");
+
         // Make the appropriate DB calls
         await listDatabases(client);
 
     } catch (e) {
-        console.error(e);
+        // Log a descriptive error message if connection or DB listing fails
+        console.error("Error connecting to MongoDB or listing databases:", e);
     } finally {
         // Close the connection to the MongoDB cluster
         await client.close();
@@ -38,7 +42,7 @@ main().catch(console.error);
  * @param {MongoClient} client A MongoClient that is connected to a cluster
  */
 async function listDatabases(client) {
-    databasesList = await client.db().admin().listDatabases();
+    const databasesList = await client.db().admin().listDatabases();
 
     console.log("Databases:");
     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
