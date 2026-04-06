@@ -46,7 +46,7 @@ async function main(){
                 name: "Private room in London",
                 property_type: "Apartment",
                 bedrooms: 1,
-                bathroom: 1
+                bathrooms: 1
             },
             {
                 name: "Beautiful Beach House",
@@ -57,6 +57,9 @@ async function main(){
                 last_review: new Date()
             }
         ]);
+    } catch (e) {
+        // Handle any errors during database operations
+        console.error("Error while creating listings:", e);
     } finally {
         // Close the connection to the MongoDB cluster
         await client.close();
